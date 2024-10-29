@@ -17,10 +17,11 @@ Including another URLconf
 from xml.etree.ElementInclude import include
 from django.contrib import admin
 from django.urls import path, include
-
+from coffee.views import CoffeeApi, LoginAPI
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', include('coffee.urls')
-    )
+    # path('', include('coffee.urls'),
+    path('coffee/', CoffeeApi.as_view()),
+    path('login/', LoginAPI.as_view())
 ]
