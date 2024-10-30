@@ -5,7 +5,7 @@ from .models import Coffee
 class CoffeeSerializer(serializers.ModelSerializer):
     class Meta:
         model = Coffee
-        fields =  ['name']
+        fields =  ['name','quantity', 'price', 'drink']
 
 class LoginSerializer(serializers.Serializer):
         username = serializers.CharField()

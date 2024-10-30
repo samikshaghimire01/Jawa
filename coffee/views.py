@@ -3,11 +3,14 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Coffee
 from rest_framework.views import APIView
+from rest_framework.generics import ListAPIView
+from rest_framework.filters import SearchFilter
 from rest_framework.response import Response
 from .serializers import CoffeeSerializer, LoginSerializer
 from django.contrib.auth import authenticate
 from rest_framework.authtoken.models import Token
 from rest_framework.permissions import IsAuthenticated
+
 # Create your views here.
 
 
@@ -56,3 +59,16 @@ class LoginAPI(APIView):
          "message": "Invalid Credential"
 
          })
+
+class CoffeeApiView(ListAPIView):
+   queryset = Coffee.objects.all()
+   serializer_class = CoffeeSerializer
+   filter_backends = [SearchFilter]
+   search_fields = ["name"]
+
+   def get_queryset(self):
+        queryset = Coffee.objects.all()
+        drink = self.request.query_params.get('drink', None)
+        if drink:
+            queryset = queryset.filter(drink=drink)
+        return queryset

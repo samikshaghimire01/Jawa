@@ -31,7 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'jazzmin',
+    # 'jazzmin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -134,13 +134,13 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-JAZZMIN_SETTINGS= {
+# JAZZMIN_SETTINGS= {
     
-    "site_title": "My Coffee Shop Admin",
-    "site_header": "Coffee Shop",
-    "welcome_sign": "Welcome to the Coffee Shop Admin",
-    "topmenu_links": [
-        {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
-        {"name": "Support", "url": "https://support.coffeeshop.com", "new_window": True},
-    ],
-}
+#     "site_title": "My Coffee Shop Admin",
+#     "site_header": "Coffee Shop",
+#     "welcome_sign": "Welcome to the Coffee Shop Admin",
+#     "topmenu_links": [
+#         {"name": "Home", "url": "admin:index", "permissions": ["auth.view_user"]},
+#         {"name": "Support", "url": "https://support.coffeeshop.com", "new_window": True},
+#     ],
+# }
